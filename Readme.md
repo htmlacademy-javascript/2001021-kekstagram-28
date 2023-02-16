@@ -2,6 +2,7 @@
 
 - Студент: [Эдуард Османов](https://up.htmlacademy.ru/javascript/28/user/2001021).
 - Наставник: [Павел Лукин]
+  (https://htmlacademy.ru/profile/id1313529).
 
 ---
 
