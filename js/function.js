@@ -1,11 +1,15 @@
 /*Функция для проверки длины строки */
-function getStringLength(str, val) {
-  // Проверяем длину строки и сравниваем с максимальной
-  if (str.length <= val) {
-    return true;
-  }
-  return false;
-}
+
+// function getStringLength(str, val) {
+//   // Проверяем длину строки и сравниваем с максимальной
+//   if (str.length <= val) {
+//     return true;
+//   }
+//   return false;
+// }
+
+const getStringLength = (str, val) => str.length <= val;
+
 getStringLength('проверяемая строка', 20); // true
 getStringLength('проверяемая строка', 18); // true
 getStringLength('проверяемая строка', 10); // false
@@ -16,6 +20,7 @@ function chekedPalindrom(str) {
   const strToLower = str.toLowerCase().trim();
   return strToLower === strToLower.split('').reverse().join('');
 }
+
 
 chekedPalindrom('ДовОд '); // true
 chekedPalindrom('топот'); // true
