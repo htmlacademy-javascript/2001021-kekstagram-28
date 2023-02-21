@@ -80,3 +80,4 @@ padStart("1", 4, "0");
 padStart("q", 4, "werty");
 padStart("q", 4, "we");
 padStart("qwerty", 4, "0");
+padStart("qwerty", 3, "0");
