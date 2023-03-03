@@ -40,12 +40,6 @@ const getRandomeAvatar = () => {
   return `avatar-${randomImg}.svg`;
 };
 
-//  Генерация случайного коментария
-// const getRandomComments = (comment) => {
-//   const randomComment = Math.floor(Math.random() * COMMENT_COUNT);
-//   return comment[randomComment];
-// };
-
 //  Генерация идентификатора
 const createIndex = () => {
   let index = 1;
@@ -58,34 +52,31 @@ const getPictureCounts = createIndex();
 
 const getRandomArrayElement = (element) => element[getRundomNumbers(0, element.length - 1)];
 
-
-const createComments = () =>
-  Array.from({length: getRundomNumbers(1,10)}, () =>
-    getRandomArrayElement(COMMENTS)
-  );
-
-createComments();
-
 const createComment = () => ({
   id: getComentsId(),
   avatar: getRandomeAvatar(),
-  message: createComments(),
-  name: getRandomArrayElement(NAMES)
+  name: getRandomArrayElement(NAMES),
+  message: getRandomArrayElement(COMMENTS),
 });
+
+const createComments = () => Array.from(
+  {length: getRundomNumbers(0, COMMENT_COUNTS)},
+  createComment,
+);
+
+createComments();
 
 const createPhoto = () => ({
   id: getFotoId(),
   url: `photos/${getPictureCounts()}.jpg`,
   description: getRandomArrayElement(DESCRIPTIONS),
   likes: getRundomNumbers(LIKE_MIN_COUNTS, LIKE_MAX_COUNTS),
-  comments: Array.from({length: getRundomNumbers(0, COMMENT_COUNTS)},
-    createComment
-  )
+  comments: createComments(),
 });
 
 const createPhotos = () =>
-  Array.from({length: PICTURE_COUNTS}, (_, pictureIndex) =>
-    createPhoto(pictureIndex++)
+  Array.from({length: PICTURE_COUNTS},
+    createPhoto,
   );
 
 createPhotos();
