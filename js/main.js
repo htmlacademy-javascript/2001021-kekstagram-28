@@ -48,13 +48,13 @@ const createIndex = () => {
 
 const getFotoId = createIndex();
 const getComentsId = createIndex();
-const getPictureCount = createIndex();
+const getPictureCounts = createIndex();
 
 const getRandomArrayElement = (element) => element[getRundomNumbers(0, element.length - 1)];
 
 const createPhoto = () => ({
   id: getFotoId(),
-  url: `photos/${getPictureCount()}.jpg`,
+  url: `photos/${getPictureCounts()}.jpg`,
 
   description: getRandomArrayElement(DESCRIPTIONS),
   likes: getRundomNumbers(LIKE_MIN_COUNTS, LIKE_MAX_COUNTS),
@@ -68,11 +68,11 @@ const createPhoto = () => ({
 
 });
 
-const getPicture = () =>
+const createPhotos = () =>
   Array.from({length: PICTURE_COUNTS}, (_, pictureIndex) =>
     createPhoto(pictureIndex++)
   );
-console.log(getPicture());
+createPhotos();
 
 
-console.log(createPhoto());
+createPhoto();
