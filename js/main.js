@@ -36,8 +36,8 @@ const getRandomeAvatar = () => {
 
 //  Генерация случайного коментария
 const getRandomComments = (comment) => {
-  const rundomComment = Math.floor(Math.random() * comment.length);
-  return comment[rundomComment];
+  const randomComment = Math.floor(Math.random() * comment.length);
+  return comment[randomComment];
 };
 
 //  Генерация идентификатора
