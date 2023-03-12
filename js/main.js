@@ -1,4 +1,4 @@
 import {createPhotos} from './data.js';
-import {similarPictures} from './users_photo.js';
+import {makeSimilarPictures} from './users_photo.js';
 
-similarPictures(createPhotos());
+makeSimilarPictures(createPhotos());
