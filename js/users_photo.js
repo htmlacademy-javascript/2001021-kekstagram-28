@@ -1,19 +1,23 @@
 
 const picturesContainer = document.querySelector('.pictures');
-const pictureUsersTemplate = document.querySelector('#picture').content.querySelector('.picture');
+const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
-const clonePictureElement = ({url, likes, comments}) => {
-  const pictureElement = pictureUsersTemplate.cloneNode(true);
+const createPictureElement = ({url, likes, comments, description}) => {
+  const pictureElement = pictureTemplate.cloneNode(true);
   pictureElement.querySelector('.picture__img').src = url;
+  pictureElement.querySelector('.picture__img').alt = description;
   pictureElement.querySelector('.picture__likes').textContent = likes;
   pictureElement.querySelector('.picture__comments').textContent = comments.length;
-  picturesContainer.append(pictureElement);
+  return pictureElement;
 };
 
-const makeSimilarPictures = (element) => {
+const renderPictures = (photos) => {
   const pictureFragment = document.createDocumentFragment();
-  element.forEach(clonePictureElement);
-  pictureFragment.append(element);
+  photos.forEach((photo) => {
+    const photoElement = createPictureElement(photo);
+    pictureFragment.append(photoElement);
+  });
+  picturesContainer.append(pictureFragment);
 };
 
-export{makeSimilarPictures};
+export{renderPictures};
