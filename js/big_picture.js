@@ -76,6 +76,7 @@ const closeBigPhoto = () => {
   body.classList.remove('modal-open');
 
   // Удаляем события после закрытия модального окна
+  // eslint-disable-next-line no-use-before-define
   document.removeEventListener('keydown', onDocumentKeydown);
   closePictureButton.removeEventListener('click', onCancelButtonClick);
 };
@@ -100,7 +101,9 @@ const openBigPicture = (photo) => {
   createComments(photo.comments);
 };
 
-const onCancelButtonClick = () => closeBigPhoto();
+function onCancelButtonClick() {
+  return closeBigPhoto();
+}
 
 export {
   openBigPicture,
