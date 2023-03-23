@@ -24,4 +24,4 @@ const renderPictures = (photos) => {
   picturesContainer.append(pictureFragment);
 };
 
-export{renderPictures};
+export{renderPictures, picturesContainer};
