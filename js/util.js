@@ -8,4 +8,10 @@ const getRundomNumbers = (min, max) => {
 
 const getRandomArrayElement = (element) => element[getRundomNumbers(0, element.length - 1)];
 
-export{getRundomNumbers, getRandomArrayElement};
+const isEscEvent = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
+
+export {
+  getRundomNumbers,
+  getRandomArrayElement,
+  isEscEvent
+};
