@@ -95,7 +95,7 @@ const openBigPicture = (photo) => {
 
   // Добавляем события после закрытия модального окна
   document.addEventListener('keydown', onDocumentKeydown);
-  cosePictureButton.addEventListener('click', onCancelButtonClick);
+  closePictureButton.addEventListener('click', onCancelButtonClick);
 
   createBigPhoto(photo);
   createComments(photo.comments);
